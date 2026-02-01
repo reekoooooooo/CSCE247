@@ -1,4 +1,4 @@
-package decorator;
+package Decorator;
 
 import java.util.Scanner;
 
