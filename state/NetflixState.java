@@ -1,53 +1,84 @@
 package state;
 
+/**
+ * NetflixState represents the state of the TV when the user is using the Netflix app.
+ * It follows the State interface and inherits from Application to access content lists.
+ */
 public class NetflixState extends Application implements State {
+    
+    private TV tv;
+
     /**
-     * Netflix state represents the state of the TV when the user is using the Netflix app
-     * follows State.jave inteface anf inherits from Application.java to access movies and TV shows lists
-     * @param tv
+     * Constructor populates Netflix-specific content and sets the TV context.
+     * @param tv The TV context this state belongs to.
      */
     public NetflixState(TV tv) {
         super();
-        // populate movies and TV shows for the Netflix state
-        movies.add("The Dark Knight");
-        movies.add("Pulp Fiction");
-        movies.add("The Lord of the Rings");
+        this.tv = tv;
+        
+        // Content updated to match instructor screenshot
+        movies.add("The Land Before Time");
+        movies.add("Frozen");
+        movies.add("The Little Mermaid");
+        movies.add("Ice Age");
 
-
-        tvShows.add("Money Heist");
-        tvShows.add("Peaky Blinders");
-        tvShows.add("Narcos");
-        tvShows.add("Black Mirror");
+        tvShows.add("Peppa Pig");
+        tvShows.add("My Little Pony");
+        tvShows.add("Garfield");
+        tvShows.add("Teenage Mutant Ninja Turtles");
     }
+
     /**
-     * pressing buttons in Netflix state will either keep you on the Netflix screen or switch to the respective app
-     * pressing TV or Movie buttons will display the respective lists of content available on the Netflix screen
+     * Switches the TV back to the Home state.
      */
     @Override
     public String pressHomeButton() {
-        return "Switching to Home...";
+        tv.setState(tv.getHomeState());
+        return "Loading Home Screen...";
     }
+
+    /**
+     * Confirms the user is already on the Netflix app.
+     */
     @Override
     public String pressNetflixButton() {
-        return "You are already on Netflix.";
+        return "TV is already on Netflix";
     }
+
+    /**
+     * Switches the TV state to Hulu.
+     */
     @Override
     public String pressHuluButton() {
-        return "Switching to Hulu...";
+        tv.setState(tv.getHuluState());
+        return "Loading Hulu...";
     }
+
+    /**
+     * Displays the Netflix TV show list with the correct header.
+     */
     @Override
     public String pressTVButton() {
+        System.out.println("\nNetflix TV Shows:");
         displayTVShows();
         return "Showing Netflix TV Shows.";
     }
+
+    /**
+     * Displays the Netflix movie list with the correct header.
+     */
     @Override
     public String pressMovieButton() {
+        System.out.println("\nNetflix Movies:");
         displayMovies();
         return "Showing Netflix Movies.";
     }
+
+    /**
+     * Prints the message for watching a specific title on Netflix.
+     */
     @Override
     public void watch(String title) {
         System.out.println("Now Watching \"" + title + "\" on Netflix.");
     }
-    
 }

@@ -2,40 +2,49 @@ package state;
 
 import java.util.ArrayList;
 
-
-
+/**
+ * Abstract class representing a streaming application.
+ * Provides storage and display logic for movies and TV shows.
+ */
 public abstract class Application {
 
     protected ArrayList<String> movies;
     protected ArrayList<String> tvShows;
 
+    /**
+     * Constructor initializes the content lists.
+     */
     public Application() {
         movies = new ArrayList<>();
         tvShows = new ArrayList<>();
     }
 
-    public void watch(String title) {
-        System.out.println("Watching: " + title);
-    }
-
+    /**
+     * Displays the list of movies.
+     * Output format matches instructor requirements (no bullets).
+     */
     public void displayMovies() {
-        System.out.println("Movies:");
         if (movies.size() == 0) {
-            System.out.println("  No movies available.");
+            System.out.println("No movies available.");
         } else {
+            // Iterates and prints each movie title directly
             for (String movie : movies) {
-                System.out.println("  - " + movie);
+                System.out.println(movie);
             }
         }
     }
     
+    /**
+     * Displays the list of TV shows.
+     * Output format matches instructor requirements (no bullets).
+     */
     public void displayTVShows() {
-        System.out.println("TV Shows:");
         if (tvShows.size() == 0) {
-            System.out.println("  No TV shows available.");
+            System.out.println("No TV shows available.");
         } else {
+            // Iterates and prints each show title directly
             for (String show : tvShows) {
-                System.out.println("  - " + show);
+                System.out.println(show);
             }
         }
     }

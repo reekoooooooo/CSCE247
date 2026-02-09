@@ -17,7 +17,7 @@ public class HuluState extends Application implements State {
         super();
         this.tv = tv;
 
-        // populate movies and TV shows for the Hulu state
+        // Populate content for Hulu
         movies.add("Prey");
         movies.add("Palm Springs");
         movies.add("No One Will Save You");
@@ -28,40 +28,58 @@ public class HuluState extends Application implements State {
         tvShows.add("Futurama");
     }
 
+    /**
+     * Returns to the home screen.
+     */
     @Override
     public String pressHomeButton() {
         tv.setState(tv.getHomeState());
-        return "Returning to Home screen...";
-    }
-
-    @Override
-    public String pressNetflixButton() {
-        tv.setState(tv.getNetflixState());
-        return "Switching to Netflix...";
-    }
-
-    @Override
-    public String pressHuluButton() {
-        return "Already on Hulu.";
-    }
-
-    @Override
-    public String pressTVButton() {
-        displayTVShows();
-        return "Browsing Hulu TV shows.";
-    }
-
-    @Override
-    public String pressMovieButton() {
-        displayMovies();
-        return "Browsing Hulu movies.";
+        return "Loading Home Screen...";
     }
 
     /**
-     * Watching content on Hulu
+     * Switches from Hulu to Netflix.
+     */
+    @Override
+    public String pressNetflixButton() {
+        tv.setState(tv.getNetflixState());
+        return "Loading Netflix...";
+    }
+
+    /**
+     * Confirms user is already on the Hulu app.
+     */
+    @Override
+    public String pressHuluButton() {
+        return "TV is already on Hulu";
+    }
+
+    /**
+     * Displays the list of TV shows available on Hulu.
+     */
+    @Override
+    public String pressTVButton() {
+        System.out.println("\nHulu TV Shows:");
+        displayTVShows();
+        return "Showing Hulu TV Shows.";
+    }
+
+    /**
+     * Displays the list of movies available on Hulu.
+     */
+    @Override
+    public String pressMovieButton() {
+        System.out.println("\nHulu Movies:");
+        displayMovies();
+        return "Showing Hulu Movies.";
+    }
+
+    /**
+     * Sets the program title to watch on Hulu.
+     * @param title The name of the program to watch.
      */
     @Override
     public void watch(String title) {
-        System.out.println("Now watching \"" + title + "\" on Hulu.");
+        System.out.println("Now Watching \"" + title + "\" on Hulu.");
     }
 }

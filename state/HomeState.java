@@ -1,10 +1,9 @@
 package state;
 
 /**
- * HomeState represents the default state of the TV when it is turned on
- * In this state, the user can choose to switch to different apps like Netflix or Hulu
+ * HomeState represents the default state of the TV when it is turned on.
+ * In this state, the user must choose an application to view specific content.
  */
-
 public class HomeState implements State {
 
     private TV tv;
@@ -18,52 +17,52 @@ public class HomeState implements State {
     }
 
     /**
-     * Pressing Home while already on Home does nothing
+     * Pressing Home while already on Home indicates the current screen.
      */
     @Override
     public String pressHomeButton() {
-        return "You are already on the Home screen.";
+        return "TV is already on the home screen";
     }
 
     /**
-     * Switch from Home to Netflix
+     * Switch from Home to Netflix and updates the TV state.
      */
     @Override
     public String pressNetflixButton() {
         tv.setState(tv.getNetflixState());
-        return "Switching to Netflix...";
+        return "Loading Netflix...";
     }
 
     /**
-     * Switch from Home to Hulu
+     * Switch from Home to Hulu and updates the TV state.
      */
     @Override
     public String pressHuluButton() {
         tv.setState(tv.getHuluState());
-        return "Switching to Hulu...";
+        return "Loading Hulu...";
     }
 
     /**
-     * Home can show general TV categories (not app-specific lists)
+     * In Home state, the user is prompted to pick an app to see TV shows.
      */
     @Override
     public String pressTVButton() {
-        return "Showing Home TV categories.";
+        return "Home: You must pick an app to show TV shows.";
     }
 
     /**
-     * Home can show general movie categories
+     * In Home state, the user is prompted to pick an app to show movies.
      */
     @Override
     public String pressMovieButton() {
-        return "Showing Home Movie categories.";
+        return "Home: You must pick an app to show movies.";
     }
 
     /**
-     * Cannot watch content directly from Home
+     * Prevents watching content without an active application.
      */
     @Override
     public void watch(String title) {
-        System.out.println("Please choose an app before watching \"" + title + "\".");
+        System.out.println("You need to enter an application like Netflix or Hulu to watch a program.");
     }
 }
