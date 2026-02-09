@@ -34,7 +34,9 @@ public class HuluState extends Application implements State {
     @Override
     public String pressHomeButton() {
         tv.setState(tv.getHomeState());
-        return "Loading Home Screen...";
+        String msg = "Loading Home Screen...";
+        System.out.println(msg);
+        return msg;
     }
 
     /**
@@ -43,7 +45,9 @@ public class HuluState extends Application implements State {
     @Override
     public String pressNetflixButton() {
         tv.setState(tv.getNetflixState());
-        return "Loading Netflix...";
+        String msg = "Loading Netflix...";
+        System.out.println(msg);
+        return msg;
     }
 
     /**
@@ -51,7 +55,9 @@ public class HuluState extends Application implements State {
      */
     @Override
     public String pressHuluButton() {
-        return "TV is already on Hulu";
+        String msg = "TV is already on Hulu";
+        System.out.println(msg);
+        return msg;
     }
 
     /**

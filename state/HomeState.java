@@ -21,7 +21,9 @@ public class HomeState implements State {
      */
     @Override
     public String pressHomeButton() {
-        return "TV is already on the home screen";
+        String msg = "TV is already on the home screen";
+        System.out.println(msg); // Manually print since driver won't
+        return msg;
     }
 
     /**
@@ -30,7 +32,9 @@ public class HomeState implements State {
     @Override
     public String pressNetflixButton() {
         tv.setState(tv.getNetflixState());
-        return "Loading Netflix...";
+        String msg = "Loading Netflix...";
+        System.out.println(msg);
+        return msg;
     }
 
     /**
@@ -39,15 +43,18 @@ public class HomeState implements State {
     @Override
     public String pressHuluButton() {
         tv.setState(tv.getHuluState());
-        return "Loading Hulu...";
+        String msg = "Loading Hulu...";
+        System.out.println(msg);
+        return msg;
     }
-
     /**
      * In Home state, the user is prompted to pick an app to see TV shows.
      */
     @Override
     public String pressTVButton() {
-        return "Home: You must pick an app to show TV shows.";
+        String msg = "Home: You must pick an app to show TV shows.";
+        System.out.println(msg);
+        return msg;
     }
 
     /**
@@ -55,7 +62,9 @@ public class HomeState implements State {
      */
     @Override
     public String pressMovieButton() {
-        return "Home: You must pick an app to show movies.";
+        String msg = "Home: You must pick an app to show movies.";
+        System.out.println(msg);
+        return msg;
     }
 
     /**

@@ -34,7 +34,9 @@ public class NetflixState extends Application implements State {
     @Override
     public String pressHomeButton() {
         tv.setState(tv.getHomeState());
-        return "Loading Home Screen...";
+        String msg = "Loading Home Screen...";
+        System.out.println(msg);
+        return msg;
     }
 
     /**
@@ -42,7 +44,9 @@ public class NetflixState extends Application implements State {
      */
     @Override
     public String pressNetflixButton() {
-        return "TV is already on Netflix";
+        String msg = "TV is already on Netflix";
+        System.out.println(msg);
+        return msg;
     }
 
     /**
@@ -51,12 +55,15 @@ public class NetflixState extends Application implements State {
     @Override
     public String pressHuluButton() {
         tv.setState(tv.getHuluState());
-        return "Loading Hulu...";
+        String msg = "Loading Hulu...";
+        System.out.println(msg);
+        return msg;
     }
 
     /**
      * Displays the Netflix TV show list with the correct header.
      */
+    
     @Override
     public String pressTVButton() {
         System.out.println("\nNetflix TV Shows:");
@@ -73,7 +80,6 @@ public class NetflixState extends Application implements State {
         displayMovies();
         return "Showing Netflix Movies.";
     }
-
     /**
      * Prints the message for watching a specific title on Netflix.
      */
