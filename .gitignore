@@ -4,3 +4,9 @@
 # OS junk
 .DS_Store
 Thumbs.db
+
+Req Examples/
+gitbranch/
+*.txt
+*.pdf
+app req
